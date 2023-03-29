@@ -1,7 +1,8 @@
 #include <iostream>
+#include <math.h>
+#include <algorithm>
 using namespace std;
 
-int main() {
   class Solution {
 public:
     int myAtoi(string s) {
@@ -16,8 +17,8 @@ public:
                 i++;
             }
         while(i<s.length() && isdigit(s[i])){
-            if(num > INT_MAX/10 || (num == INT_MAX/10 && s[i]>'7')){
-                return sign == -1 ? INT_MIN : INT_MAX ; 
+            if(num > INT16_MAX/10 || (num == INT16_MAX/10 && s[i]>'7')){
+                return sign == -1 ? INT16_MIN : INT16_MAX ; 
             }
             num = num * 10 + (s[i] - '0');
             i++;
@@ -25,4 +26,3 @@ public:
         return num*sign;
     }
 };
-}
