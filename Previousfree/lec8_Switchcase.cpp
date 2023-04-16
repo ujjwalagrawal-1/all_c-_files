@@ -29,7 +29,6 @@ int main()  {
     }
    }
    // Mini Calculator 
-   /*
   int a,b,d;
   char c;
   cin>>a>>c>>b;
@@ -62,8 +61,7 @@ case '%':
  int a,b,c,d,e,not1,not50,not100,not500,not2000,f;
  cout<<"Please Enter the Amount :-"<<endl;
  cin>>a;
- not2000 = a / 2000;
- b = a%2000;
+
  not500 = b / 500;
  c = b % 500;
  not100 = c/100;
@@ -72,10 +70,12 @@ case '%':
  e = d%50;
  not1 = e/1;
  cout<<"Please Enter which amount note do you want"<<endl;
- for(int i = 1;i<=5;i++){
- cin>>f; 
+ 
+ cin>>f;
  switch(f){
     case 1 : 
+     not2000 = a / 2000;
+ b = a%2000;
     cout<<"No of 1 x   "<<not1<<endl;
     break;
     case 50 :
@@ -92,4 +92,3 @@ case '%':
     break;
  }
  }
-}
