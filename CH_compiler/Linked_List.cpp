@@ -125,6 +125,16 @@ void deleteatposition(node* &head,node* &tail,int position){
     return;
   }
 }
+node* headreverse(node* &prev,node* &curr){
+  // base condition
+  if(curr == NULL){
+    return prev;
+  }
+  
+  node* newnext = curr->next;
+  curr->next = prev;
+
+}
 
 void print(node* &head) {
   node* temp = head;
@@ -135,6 +145,8 @@ void print(node* &head) {
 }
 
 int main() {
+
+                              // first Part
   node* head = NULL;
   node* tail = NULL;
   insertathead(head,tail,10);
@@ -148,8 +160,8 @@ int main() {
   insertatposition(head, tail, 5, 5);
   insertatposition(head, tail, 6, 6);
   insertattail(head,tail,66);
-  deleteatposition(head,tail,12);
-  print(head);
+  // deleteatposition(head,tail,12);
+  // print(head);
   
   return 0;
 }

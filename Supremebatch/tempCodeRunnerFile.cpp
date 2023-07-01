@@ -1,2 +1,2 @@
 
-        ans =  mid;
+    return 0;
