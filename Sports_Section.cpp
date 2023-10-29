@@ -24,20 +24,14 @@ typedef queue<pair<int,int>> doq;
 typedef vector<char> vch;
 
 
-void solve(){
-	int x;cin>>x;
-	vec veci(x);
-	loop(j,x){
-		int in;cin>>in;
-		veci[j] = in;
-	}
-}
 
 int main(){
-	bullet();
-	int qp;cin>>qp;
-	while(qp--){
-		solve();
-	}
-		return 0;
-}
+    bullet();
+    int x;cin>>x;
+    if(x>=7){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
+}x

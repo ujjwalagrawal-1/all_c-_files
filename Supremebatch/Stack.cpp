@@ -46,7 +46,7 @@ public:
     }
 
     int getsize() {
-        return top+1;;
+        return top+1;
     }
 
     bool isEmpty() {
