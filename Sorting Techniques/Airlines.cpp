@@ -1,8 +1,8 @@
-//"2023-10-29 06:48:50",
+//"2023-11-29 20:03:54",
 // Author Ujjwal_Agrawal
-// Linkedin:  https://www.linkedin.com/in/ujjwal-agrawal-9267b1253/
-// Codeforces: https://codeforces.com/profile/unerring_coder
-// Codechef: https://www.codechef.com/users/kumarujjwalagr
+// Linkedin:  https://www.linkedin.com/in/uj7b1253/
+// Codeforces: https://codeforces.com/profile/n_________er
+// Codechef: https://www.codechef.com/users/kgr
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -113,7 +113,21 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    
+    inint(x);
+    inint(y);
+    int air = y/100;
+    int o = y%100;
+    if(o){
+        air++;
+    }
+    int e = air - x;
+    if(e >= 0){
+        out(e);
+    }
+    else{
+        out(0);
+    }
+
 }
 
 
@@ -123,9 +137,8 @@ int32_t main()
     #ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    //God knows when to help you So Keep Giving up your effort bcoz 
-    //when effort and help combine then such erra will come in Which you can't Imagine
     //              ☆*: .｡. o(≧▽≦)o .｡.:*☆
+    //        	   coding karne ke liya skills nahi hai.. moye moye    
     int t;
     cin>>t;
     while(t--)

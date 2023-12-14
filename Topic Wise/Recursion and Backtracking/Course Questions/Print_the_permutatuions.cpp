@@ -1,4 +1,4 @@
-//"2023-10-29 06:48:50",
+//"2023-11-17 19:38:49",
 // Author Ujjwal_Agrawal
 // Linkedin:  https://www.linkedin.com/in/ujjwal-agrawal-9267b1253/
 // Codeforces: https://codeforces.com/profile/unerring_coder
@@ -110,10 +110,26 @@ ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;}return res;}
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = (q * q) % M;ex>>= 1;}return p;}
-
+void make_permutations(string &st,int j,vector<string> & str){
+    if(j>=st.size()){
+        cout<<st<<" ";
+        return;
+    }
+    for(int i = j;i<st.size();i++){
+        swap(st[i],st[j]);
+        make_permutations(st,j+1,str);
+        swap(st[i],st[j]);
+    }
+}
 void solve()
 {
-    
+    int j = 0;
+    instr(st);
+    vector<string> str;
+    make_permutations(st,j,str);
+    for(auto itr:str){
+        cout<<itr<<" ";
+    }
 }
 
 
@@ -123,11 +139,8 @@ int32_t main()
     #ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    //God knows when to help you So Keep Giving up your effort bcoz 
-    //when effort and help combine then such erra will come in Which you can't Imagine
     //              ☆*: .｡. o(≧▽≦)o .｡.:*☆
-    int t;
-    cin>>t;
+    int t = 1;
     while(t--)
     {
     solve();

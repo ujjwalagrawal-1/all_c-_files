@@ -1,8 +1,8 @@
-//"2023-10-29 06:48:50",
+//"2023-11-28 14:22:09",
 // Author Ujjwal_Agrawal
-// Linkedin:  https://www.linkedin.com/in/ujjwal-agrawal-9267b1253/
-// Codeforces: https://codeforces.com/profile/unerring_coder
-// Codechef: https://www.codechef.com/users/kumarujjwalagr
+// Linkedin:  https://www.linkedin.com/in/uj7b1253/
+// Codeforces: https://codeforces.com/profile/n_________er
+// Codechef: https://www.codechef.com/users/kgr
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -113,21 +113,41 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
+    inint(x);
+    vec veci(x+1);
+    cin>>veci;
+    veci[x] = veci[0];
     
+    int j = 0;int k = 0;
+    int mini = INT_MAX; 
+    rep(i,x){
+        int prev = mini;
+        mini = min(mini,abs(veci[i+1]-veci[i]));
+        if(prev == mini){
+            
+            continue;
+        }
+        else{
+        
+        j = i;
+        k = i+1;
+        }
+       
+    }
+    if(k == x){
+        k = 0;
+    }
+    cout<<j+1<<" "<<k+1<<endl;
 }
-
-
 int32_t main()
 {
     bullet()
     #ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    //God knows when to help you So Keep Giving up your effort bcoz 
-    //when effort and help combine then such erra will come in Which you can't Imagine
     //              ☆*: .｡. o(≧▽≦)o .｡.:*☆
-    int t;
-    cin>>t;
+    //        	   coding karne ke liya skills nahi hai.. moye moye    
+    int t = 1;
     while(t--)
     {
     solve();

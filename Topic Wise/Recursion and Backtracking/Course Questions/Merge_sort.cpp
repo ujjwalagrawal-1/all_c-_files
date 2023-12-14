@@ -1,4 +1,4 @@
-//"2023-10-29 06:48:50",
+//"2023-11-15 01:09:06",
 // Author Ujjwal_Agrawal
 // Linkedin:  https://www.linkedin.com/in/ujjwal-agrawal-9267b1253/
 // Codeforces: https://codeforces.com/profile/unerring_coder
@@ -18,7 +18,7 @@ using namespace std;
 #define pb push_back
 #define pp pop_back
 #define f first
-#define s second
+#define S second
 #define foreach(i, j, k, in) for(int i=j;i<k;i+=in)
 #define rforeach(i, j, k, in) for(int i=j;i>=k;i-=in)
 #define rep(i,j) foreach(i,0,j,1)
@@ -111,9 +111,69 @@ ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = (q * q) % M;ex>>= 1;}return p;}
 
+void Merge_Sortedly(int arr[],int s,int e){
+    
+    int mid = s + (e - s)/2;
+    int len1 = mid + 1 - s;
+    int len2 = e - mid;
+    int* left = new int[len1];
+    int* right = new int[len2];
+    int k = s;
+    for(int i = 0;i<len1;i++){
+      left[i] = arr[k++];
+    }
+    k = mid+1;
+    for(int j = 0;j<len2;j++){
+        right[j] = arr[k++];
+    }
+
+    int leftindex = 0;
+    int rightindex = 0;
+    int mainindex = s;
+
+    while(leftindex<len1 && rightindex<len2){
+        if(left[leftindex]<right[rightindex]){
+            arr[mainindex++] = left[leftindex++];
+        }
+        else{
+            arr[mainindex++] = right[rightindex++];
+        }
+    }
+    while(leftindex<len1){
+        arr[mainindex++] = left[leftindex++];
+    }
+    while(rightindex<len2){
+        arr[mainindex++] = right[rightindex++];
+    }
+}
+void MergeSort(int arr[],int s,int e){
+    if(s>=e){
+        return;
+    }
+    int mid = s + (e - s)/2;
+    MergeSort(arr,s,mid-1);
+    MergeSort(arr,mid,e);
+    Merge_Sortedly(arr,s,e);
+}
+
+
+
 void solve()
 {
-    
+    // Implementing The Merge Sort 
+    inint(x);
+    int arr[x];
+    // cin>>veci;
+    // cout<<"Without Sorted Array is "<<endl;
+    // cout<<veci;
+    rep(i,x){
+        cin>>arr[i];
+    }
+    int start = 0;
+    int end = x-1;
+    MergeSort(arr,start,end);
+    for(int i = 0; i<x;i++)
+        cout<<arr[i]<<" ";
 }
 
 
@@ -126,8 +186,7 @@ int32_t main()
     //God knows when to help you So Keep Giving up your effort bcoz 
     //when effort and help combine then such erra will come in Which you can't Imagine
     //              ☆*: .｡. o(≧▽≦)o .｡.:*☆
-    int t;
-    cin>>t;
+    int t = 1;
     while(t--)
     {
     solve();

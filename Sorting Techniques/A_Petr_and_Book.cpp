@@ -1,8 +1,8 @@
-//"2023-10-29 06:48:50",
+//"2023-11-28 16:11:33",
 // Author Ujjwal_Agrawal
-// Linkedin:  https://www.linkedin.com/in/ujjwal-agrawal-9267b1253/
-// Codeforces: https://codeforces.com/profile/unerring_coder
-// Codechef: https://www.codechef.com/users/kumarujjwalagr
+// Linkedin:  https://www.linkedin.com/in/uj7b1253/
+// Codeforces: https://codeforces.com/profile/n_________er
+// Codechef: https://www.codechef.com/users/kgr
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -101,7 +101,7 @@ vector <ll> primes;
 vector <bool> is_prime;
 
 // Mathematical functions
-void Sieve(int n){ is_prime.assign(n + 1, true); is_prime[0] = is_prime[1] = false; for(ll i = 2; i * i <= n; i++) if(is_prime[i]) for(ll j = i * i; j <= n; j += i) is_prime[j] = false;}
+void Sieve(int n){ is_prime.assign(n + 1, true); is_prime[0] = is_prime[1] = false; for(ll i = 2; i * i <= n; i++) if(is_prime[i]) for(ll j = i * i; j <=  n; j += i) is_prime[j] = false;}
 void get_primes(int n){ for(int i = 2; i <= n; i++)  if(is_prime[i])  primes.push_back(i); }
 ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
 ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
@@ -113,7 +113,20 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    
+    inint(x);
+    vec veci(7);
+    cin>>veci;
+    while(x > 0){
+    rep(i,7){
+        x -= veci[i];
+        // cout<<x<<endl;
+        if(x <= 0){
+            cout<<i+1;
+            break;
+        }
+    }
+    }
+
 }
 
 
@@ -123,11 +136,9 @@ int32_t main()
     #ifndef ONLINE_JUDGE
         freopen("Error.txt","w",stderr);
     #endif
-    //God knows when to help you So Keep Giving up your effort bcoz 
-    //when effort and help combine then such erra will come in Which you can't Imagine
     //              ☆*: .｡. o(≧▽≦)o .｡.:*☆
-    int t;
-    cin>>t;
+    //        	   coding karne ke liya skills nahi hai.. moye moye    
+    int t = 1;
     while(t--)
     {
     solve();
