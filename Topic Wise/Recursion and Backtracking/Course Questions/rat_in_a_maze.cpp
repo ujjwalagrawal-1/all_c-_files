@@ -51,48 +51,52 @@ ostream& operator<<(ostream &ostream, const map<T,V> &c) { for (auto &it : c) co
 
 
 //functions Area -->
-int Partition(vec &veci,int s,int e){ 
-    int pivotindex = s;
-    int pivotelement = veci[pivotindex];
-    int count = 0;
-    for(int i = s + 1;i<=e;i++){
-        if(pivotelement >= veci[i]){
-            count++;
-        }
+
+bool isSafe(int i,int j,int row,int col,vector<vector<bool>> &visited,vector<vector<int>> &veci){
+    if(i>=0 && i<row-1 && j>=0 && j<col-1 && !visited[i][j] && veci[i][j] == 1){
+        return true;
     }
-
-    int correctindex = s + count;
-    // out("correctindex is   ->"<<correctindex);
-    swap(veci[correctindex],veci[pivotindex]);
-    // out("I replaced correctindex "<<veci[correctindex]<<" with this    "<<veci[pivotindex]); 
-    pivotindex = correctindex;
-
-    int i = s;
-    int j = e;
-    while(i < pivotindex && j > pivotindex){
-        while(veci[i] < pivotelement){
-            i++;
-        }
-        while(veci[j] > pivotelement){
-            j--;
-        }
-        
-        if(i < pivotindex && j > pivotindex)swap(veci[j], veci[i]);
+    else{
+        return false;
     }
-
-    return pivotindex;
 }
-void QuickSort(vec &veci,int s,int e){
-    if(s>=e){
+void SolveMaze(int i,int j,int row,int col,vector<vector<bool>> &visited,vector<string> &ans,string path,vector<vector<int>> &veci){
+    // cout<<"type"<<endl;
+    if(i == row-1 && j == col-1){
+        ans.push_back(path);
         return;
     }
-
-    int p = Partition(veci,s,e);
-    QuickSort(veci,s,p-1);
-    QuickSort(veci,p+1,e);
-
+    //Down
+    if(isSafe(i+1,j,row,col,visited,veci)){
+        visited[i+1][j] = true;
+        SolveMaze(i+1,j,row,col,visited,ans,path + 'D',veci);
+        // Now backtracking bro
+        visited[i+1][j] = false;
+    }
+    // Left
+    if(isSafe(i,j-1,row,col,visited,veci)){
+        visited[i][j-1] = true;
+        SolveMaze(i,j-1,row,col,visited,ans,path + 'L',veci);
+        // Now backtracking bro
+        visited[i][j-1] = false;
+    }
+    // Right
+    if(isSafe(i,j+1,row,col,visited,veci)){
+        visited[i][j+1] = true;
+        SolveMaze(i,j+1,row,col,visited,ans,path + 'R',veci);
+        // Now backtracking bro
+        visited[i][j+1] = false;
+    }
+    // Up
+    if(isSafe(i-1,j,row,col,visited,veci)){
+        visited[i-1][j] = true;
+        SolveMaze(i-1,j,row,col,visited,ans,path + 'U',veci);
+        // Now backtracking bro
+        visited[i-1][j] = false;
+    }
 }
-int32_t main()
+
+int32_t main()  
 {
     bullet()
     #ifndef ONLINE_JUDGE
@@ -100,10 +104,30 @@ int32_t main()
     #endif
     //              ☆*: .｡. o(≧▽≦)o .｡.:*☆
     //        	   coding karne ke liya skills nahi hai.. moye moye    
-    inint(x); 
-    vec veci(x);
-    cin>>veci;
-    QuickSort(veci,0,x-1);
-    cout<<veci<<endl;
     
+
+    inint(n);
+    vector<string> ans;
+    string path = "";
+    vector<vector<bool>> visited(n,vector<bool>(n,false));
+    visited[0][0] = true;
+    vector<vector<int>> veci(n,vec(n));
+    rep(i, n) {
+    rep(j, n) {
+        cin >> veci[i][j];
+    }
+}
+
+    int i = 0,j = 0;
+    SolveMaze(i,j,n,n,visited,ans,path,veci);
+    if(ans.size() == 0){
+        out("No Such Path Exist");
+    }
+    else{ 
+        out("path exist -->");
+        for(auto itr:ans){
+            cout<<itr<<endl;
+        }
+    }
+    cout<<endl;
 }

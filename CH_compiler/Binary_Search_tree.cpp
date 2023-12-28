@@ -43,7 +43,7 @@ Node* insertionto_BST(Node* root,int data){
 void insertinto_BST(Node* &root){
     int data;cin>>data;
     while(data != -1){
-        insertion_to_bst(root,data);
+        insertionto_BST(root,data);
         cin>>data;
     }
 }
